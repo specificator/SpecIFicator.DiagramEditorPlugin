@@ -1,0 +1,55 @@
+﻿@using SpecIFicator.DiagramEditorPlugin.ViewModels.ShapeEditor
+
+<rect x="@DataContext.X"
+      y="@DataContext.Y"
+      width="@DataContext.Width"
+      height="@DataContext.Height"
+      style="fill:transparent; stroke:black;"
+      @onmousedown="OnMouseDown" />
+    />
+
+@if (DataContext.IsSelected)
+{
+    <SelectionMarker X="@DataContext.X" 
+                     Y="@DataContext.Y"
+                     Position="MarkerPosition.LeftTop"
+                     GraphicalObjectViewModel="@DataContext" />
+
+
+    <SelectionMarker X="@(DataContext.X + Math.Round(DataContext.Width/2, 0))"
+                     Y="@DataContext.Y"
+                     Position="MarkerPosition.TopMiddle"
+                     GraphicalObjectViewModel="@DataContext" />
+
+    <SelectionMarker X="@(DataContext.X + DataContext.Width)"
+                     Y="@DataContext.Y"
+                     Position="MarkerPosition.RightTop"
+                     GraphicalObjectViewModel="@DataContext" />
+
+
+    <SelectionMarker X="@(DataContext.X + DataContext.Width)"
+                     Y="@(DataContext.Y + Math.Round(DataContext.Height/2, 0))"
+                     Position="MarkerPosition.RightMiddle"
+                     GraphicalObjectViewModel="@DataContext" />
+
+    <SelectionMarker X="@(DataContext.X + DataContext.Width)"
+                     Y="@(DataContext.Y + DataContext.Height)"
+                     Position="MarkerPosition.RightBottom"
+                     GraphicalObjectViewModel="@DataContext" />
+
+
+    <SelectionMarker X="@(DataContext.X + Math.Round(DataContext.Width/2, 0))"
+                     Y="@(DataContext.Y + DataContext.Height)"
+                     Position="MarkerPosition.BottomMiddle"
+                     GraphicalObjectViewModel="@DataContext" />
+
+    <SelectionMarker X="@(DataContext.X)"
+                     Y="@(DataContext.Y + DataContext.Height)"
+                     Position="MarkerPosition.LeftBottom"
+                     GraphicalObjectViewModel="@DataContext" />
+
+    <SelectionMarker X="@(DataContext.X)"
+                     Y="@(DataContext.Y + Math.Round(DataContext.Height/2, 0))"
+                     Position="MarkerPosition.LeftMiddle"
+                     GraphicalObjectViewModel="@DataContext" />
+}

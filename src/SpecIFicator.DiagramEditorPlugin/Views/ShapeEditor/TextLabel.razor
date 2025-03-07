@@ -1,0 +1,11 @@
+﻿<text x="@DataContext.X"
+      y="@(DataContext.Y + DataContext.Height)"
+      style="fill:lightblue; stroke:black;"
+      @onmousedown="OnMouseDown" >
+      Hier ist der Text </text>
+
+
+@if (DataContext.IsSelected)
+{
+    <SelectionBox DataContext="DataContext" />
+}

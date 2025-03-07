@@ -1,0 +1,15 @@
+﻿<circle r="@(Math.Round(DataContext.Width/2, 0))"
+        cx="@(DataContext.X + Math.Round(DataContext.Width/2, 0))"
+        cy="@(DataContext.Y + Math.Round(DataContext.Height/2, 0))"
+        style="fill:white; stroke:black;"
+        @onmousedown="OnMouseDown" />
+
+
+@if (DataContext.IsSelected)
+{
+    <SelectionBox DataContext="DataContext"
+               />
+
+
+
+}

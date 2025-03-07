@@ -1,0 +1,7 @@
+{
+    "title": "SpecIFicator Diagram Editor Plugin",
+    "description": "Diagram Editor for 2D diagrams",
+    "assemblies": [
+        "SpecIFicator.DiagramEditorPlugin.dll"
+    ]
+}
