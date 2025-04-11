@@ -1,0 +1,58 @@
+﻿@using SpecIFicator.DiagramEditorPlugin.ViewModels.DiagramEditor
+@using MDD4All.SpecIF.DataModels.Manipulation;
+@using SpecIFicator.DiagramEditorPlugin.Views.ShapeEditor
+@using SpecIFicator.Plugins.BlazorComponents;
+
+@if(!DataContext.ShowShapeEditor)
+{
+    <h3><span class="bi bi-images" aria-hidden="true"></span>&nbsp;@L["Title.DiagramObjectClassesBrowser"]</h3>
+    <div>
+        <button type="button" class="btn btn-success"
+        @onclick="() => DataContext.AddDiagramObjectClassCommand.Execute(null)">
+            @L["Button.NewDiagramObjectClass"]
+        </button>
+    </div>
+    <br />
+    <h4>@L["Title.DiagramObjectClasses"]</h4>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>@L["Label.Icon"]</th>
+                <th>@L["Label.Title"]</th>
+                <th></th>
+                <th>@L["Label.ID"]</th>
+                <th>@L["Label.Revision"]</th>
+                <th>@L["Label.Description"]</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (DiagramObjectClassViewModel viewModel in DataContext.DiagramObjectClasses)
+            {
+                <tr>
+                    <td><ResourceIcon Icon="@viewModel.Icon" /></td>
+                    <td><strong>@viewModel.Title</strong></td>
+                    <td>
+                        <button type="button" 
+                        class="btn btn-sm btn-outline-dark"
+                        @onclick="() => DataContext.OpenDiagramObjectClassCommand.Execute(viewModel)">
+                            <i class="bi bi-pencil"></i>
+                        </button>
+                    </td>
+                    <td>@viewModel.ID</td>
+                    <td>@viewModel.Revision</td>
+                    <td>@((MarkupString)viewModel.Description.GetDefaultStringValue())</td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <ShapeEditor DataContext="DataContext.ShapeUnderEdit" CloseEditorCallback="OnCloseEditor" />
+}
+
+
+

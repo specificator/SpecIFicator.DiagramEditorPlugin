@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using SpecIFicator.DiagramEditorPlugin.ViewModels;
 using SpecIFicator.DiagramEditorPlugin.ViewModels.ShapeEditor;
 
 namespace SpecIFicator.DiagramEditorPlugin.Views
@@ -11,24 +12,27 @@ namespace SpecIFicator.DiagramEditorPlugin.Views
 
         private void OnMouseDown(MouseEventArgs e)
         {
-            //DataContext.State = EditState.Resizing;
-            //DataContext.State = EditState.Moving;
-
             DataContext.State = EditState.Moving;
             DataContext.OffsetX = e.OffsetX - DataContext.X;
             DataContext.OffsetY = e.OffsetY - DataContext.Y;
             DataContext.IsSelected = true;
 
-
-            foreach (GraphicalObjectViewModel graphicalObjectViewModel in DataContext.Parent.GraphicalObjects)
+            if (DataContext.Parent != null)
             {
-                if (graphicalObjectViewModel != DataContext)
+                foreach (GraphicalObjectViewModel graphicalObjectViewModel in DataContext.Parent.DiagramObjects)
                 {
-                    if (graphicalObjectViewModel.IsSelected == true)
+                    if (graphicalObjectViewModel != DataContext)
                     {
-                        graphicalObjectViewModel.IsSelected = false;
+                        if (graphicalObjectViewModel.IsSelected == true)
+                        {
+                            graphicalObjectViewModel.IsSelected = false;
+                        }
                     }
                 }
+
+
+                DataContext.Parent.SelectedElement = null;
+                DataContext.Parent.SelectedElement = DataContext;
             }
 
         }

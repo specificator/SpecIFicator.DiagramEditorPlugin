@@ -1,9 +1,17 @@
-﻿namespace SpecIFicator.DiagramEditorPlugin.ViewModels.ShapeEditor
+﻿using MDD4All.SpecIF.DataModels.DiagramMetadata;
+
+namespace SpecIFicator.DiagramEditorPlugin.ViewModels.ShapeEditor
 {
-    public class EllipseViewModel : GraphicalObjectViewModel
+    public class EllipseViewModel : GraphicalShapeObjectViewModel
     {
+        public EllipseViewModel() : base(new EllipseShapePrimitive())
+        {
+            Style = "fill:white; stroke:black;";
+        }
 
-
-    }  // Ende der Klasse -> EllipseViewModel
+        public EllipseViewModel(ShapePrimitive shapePrimitive) : base(shapePrimitive)
+        {
+        }
+    }
 }
 

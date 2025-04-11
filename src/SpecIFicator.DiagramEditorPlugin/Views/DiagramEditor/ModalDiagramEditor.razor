@@ -1,0 +1,35 @@
+﻿<div class="modal fade show" id="myModal" style="display:block;">
+
+
+
+    <div class="contentPanel" style="background:white;">
+        
+        <div class="topRow">
+            <nav class="navbar navbar-expand-lg navbar-light bg-white" style="width:100vw;">
+                <div class="topRow">
+                    <div class="logo">
+                        <img src="_content/SpecIFicator.Framework/images/specificator_logo.png" height="50" />
+                    </div>
+                    <div class="title">
+                        Diagram Editor
+                    </div>
+                    <div class="closeButton">
+                        <button class="btn btn-outline-dark btn-sm"
+                                @onclick="OnEditorClose">
+                            <i class="bi bi-x"></i>
+                        </button>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <div class="mainContent">
+            <DiagramEditor />
+        </div>
+        
+    </div>
+
+
+</div>
+
+

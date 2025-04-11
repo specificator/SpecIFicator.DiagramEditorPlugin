@@ -1,0 +1,25 @@
+﻿@using MDD4All.UI.BlazorComponents.TabControl
+@using SpecIFicator.DiagramEditorPlugin.ViewModels.ShapeEditor
+@using SpecIFicator.DiagramEditorPlugin.Views.ShapeEditor
+@using SpecIFicator.DiagramEditorPlugin.Views.ShapeEditor.Panels
+@using SpecIFicator.DiagramEditorPlugin.Views.ShapeEditor.Sidebar
+<div class="digramEditor">
+    <div class="sidebar">
+        <Sidebar DataContext="DataContext" />
+    </div>
+    <div class="editor">
+        @if (DataContext.EditDiagramObjectClassProperties)
+        {
+            <DiagramObjectClassPanel DataContext="DataContext" />
+        }
+        else if (DataContext.ShowShapeSelection)
+        {
+            <ShapeSelectionPanel DataContext="DataContext" />
+        }
+        else
+        {
+            <DynamicTabControl DataContext="DataContext" />
+        }
+    </div>
+
+</div>

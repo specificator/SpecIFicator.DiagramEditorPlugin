@@ -1,0 +1,29 @@
+﻿<div class="sidebarPanel">
+    <button type="button" 
+            class="navbar-toggler sidebarButton"
+            @onclick="ToggleMenu"><i class="fas fa-bars"></i></button>
+    
+
+    <button type="button"
+            class="btn btn-outline-link sidebarButton"
+            @onclick="() => DataContext.NewEditorCommand.Execute(null)">
+        <i class="bi bi-puzzle"></i>
+    </button>
+
+    <button type="button"
+            class="btn btn-outline-link sidebarButton"
+            @onclick="() => DataContext.OpenShapeCommand.Execute(null)">
+        <i class="bi bi-folder2-open"></i>
+    </button>
+
+    <button type="button" class="btn btn-outline-link sidebarButton bottom">
+        <i class="bi bi-gear"></i>
+    </button>
+    
+    
+</div>
+
+@if(_menuVisible)
+{
+    <SidebarMenu />
+}

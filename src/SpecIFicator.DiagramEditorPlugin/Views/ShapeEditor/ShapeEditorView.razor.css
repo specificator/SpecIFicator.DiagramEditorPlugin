@@ -1,0 +1,13 @@
+﻿.digramEditor {
+    height: calc(100vh - 51px);
+    display: grid;
+    grid-template-columns: 50px auto;
+}
+
+.sidebar {
+    grid-column: 1;
+}
+
+.editor {
+    grid-column: 2;
+}

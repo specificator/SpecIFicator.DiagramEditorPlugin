@@ -1,0 +1,10 @@
+﻿.sidebarMenu {
+    position: absolute;
+    top: 51px;
+    left:50px;
+    height: 400px;
+    z-index: 1000;
+    width: 300px;
+    border: 1px solid darkred;
+    background: white;
+}

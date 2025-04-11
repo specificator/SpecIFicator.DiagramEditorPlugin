@@ -1,0 +1,54 @@
+﻿@using SpecIFicator.Plugins.BlazorComponents
+<div class="panel">
+    <fieldset class="propertyField">
+        <legend>ID</legend>
+        <p>
+            <input type="text"
+                   class="form-control"
+                   @bind="DataContext.ShapeUnderEdit.ID" />
+        </p>
+    </fieldset>
+    <fieldset class="propertyField">
+        <legend>Revision</legend>
+        <p>
+            <input type="text"
+                   class="form-control"
+                   @bind="DataContext.ShapeUnderEdit.Revision" />
+        </p>
+    </fieldset>
+    <fieldset class="propertyField">
+        <legend>Title</legend>
+        <p>
+            <input type="text"
+                   class="form-control"
+                   @bind="DataContext.ShapeUnderEdit.Title" />
+        </p>
+    </fieldset>
+    <fieldset class="propertyField">
+        <legend>Based on</legend>
+        <p>
+            <ResourceClassSelector @bind-SelectedResourceClassKey=DataContext.ShapeUnderEdit.MainResourceClassKey />
+            <button class="btn btn-primary">Edit Template</button>
+        </p>
+    </fieldset>
+    <fieldset class="propertyField">
+        <legend>Stereotype</legend>
+        <p>
+            <input type="text"
+                   class="form-control"
+                   @bind="DataContext.ShapeUnderEdit.Stereotype" />
+        </p>
+    </fieldset>
+    <fieldset class="propertyField">
+        <legend>Type</legend>
+        <p>
+            <input type="text"
+                   class="form-control"
+                   @bind="DataContext.ShapeUnderEdit.Type" />
+        </p>
+    </fieldset>
+</div>
+<div>
+    <button class="btn btn-primary"
+            @onclick="() => DataContext.ConfirmNewEditorCommand.Execute(null)">Ok</button>
+</div>

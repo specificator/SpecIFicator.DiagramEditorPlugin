@@ -1,0 +1,14 @@
+﻿<div class="panel">
+    <fieldset class="propertyField">
+        <legend>Select Diagram Object Class</legend>
+        <p>
+            <DiagramObjectClassSelector @bind-SelectedDiagramObjectClassKey=DataContext.SelectedDiagramObjectClassKey />
+        </p>
+    </fieldset>
+</div>
+<div>
+    <button class="btn btn-primary"
+            @onclick="() => DataContext.ConfirmOpenShapeCommand.Execute(null)">
+        Ok
+    </button>
+</div>

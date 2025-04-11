@@ -1,0 +1,52 @@
+﻿.backgroundPanel {
+    display: block;
+}
+
+
+.contentPanel {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 51px auto;
+}
+
+.topRow {
+    width: 100vw;
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: 320px auto 40px;
+
+}
+
+.logo {
+    grid-column: 1;
+}
+
+
+.mainContent {
+    grid-row: 2;
+}
+
+.navbar {
+    border-bottom: 1px solid darkgray;
+    height: 51px;
+}
+
+.nav-item {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.title {
+    font-weight: bold;
+    padding-left: 10px;
+    font-size: 20px;
+    color: gray;
+    grid-column: 2;
+    align-self: center;
+}
+
+.closeButton {
+    grid-column: 3;
+    align-self: center;
+}

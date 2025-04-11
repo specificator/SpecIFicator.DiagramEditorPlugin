@@ -1,0 +1,9 @@
+﻿@using SpecIFicator.DiagramEditorPlugin.ViewModels.DiagramEditor
+<div class="toolbox">
+    <div class="header">Toolbox</div>
+
+    @foreach (DiagramObjectClassViewModel diagramObjectClassViewModel in DiagramObjectClassViewModels)
+    {
+        <DiagramToolboxLabel DataContext="diagramObjectClassViewModel" />
+    }
+</div>

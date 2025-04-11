@@ -1,0 +1,20 @@
+﻿@using MDD4All.UI.BlazorComponents.PropertyPanel
+    <PropertyRow TProperty="double"
+                 @bind-Value="DataContext.X"
+                 Name="X" />
+                 
+    <PropertyRow TProperty="double"
+                 @bind-Value="DataContext.Y"
+                 Name="Y" />
+
+    <PropertyRow TProperty="double"
+                 @bind-Value="DataContext.Width"
+                 Name="Width" />
+
+    <PropertyRow TProperty="double"
+                 @bind-Value="DataContext.Height"
+                 Name="Height" />
+
+    <PropertyRow TProperty="string"
+                 @bind-Value="DataContext.Style"
+                 Name="Style" />

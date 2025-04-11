@@ -1,0 +1,46 @@
+﻿@using MDD4All.UI.BlazorComponents.PropertyPanel
+@using SpecIFicator.DiagramEditorPlugin.ViewModels.ShapeEditor
+@using SpecIFicator.DiagramEditorPlugin.Views.ShapeEditor.PropertyPanels
+@using SpecIFicator.DiagramEditorPlugin.Views.ShapeEditor.Sidebar
+@using SpecIFicator.DiagramEditorPlugin.Views.ShapeEditor.Toolbox
+<div class="editor">
+    <div class="toolbox">
+        <ShapeToolbox DataContext="DataContext" />
+    </div>
+    <div class="toolbar">
+        <EditorToolbar DataContext="DataContext" 
+                       CloseCallback="CloseEditorCallback"
+                       ShowCloseButton="true" />
+    </div>
+    <div class="diagram">
+        <ShapeDiagram DataContext="DataContext" />
+    </div>
+    @if (DataContext.SelectedElement != null)
+    {
+        if(DataContext.SelectedElement is TextViewModel)
+        {
+            <div class="propertyPanel">
+                <TextPropertyPanel DataContext="DataContext.SelectedElement as TextViewModel"/>
+            </div>
+        }
+        else if(DataContext.SelectedElement is RectangleViewModel)
+        {
+            <div class="propertyPanel">
+                <RectanglePropertyPanel DataContext="DataContext.SelectedElement as RectangleViewModel" />
+            </div>
+        }
+        else
+        {
+            <div class="propertyPanel">
+                <DefaultShapePropertyPanel DataContext="DataContext.SelectedElement as GraphicalShapeObjectViewModel" />
+            </div>
+        }
+    }
+    else
+    {
+        <div class="propertyPanel">
+            <DiagramPropertyPanel DataContext="DataContext" />
+        </div>
+    }
+
+</div>

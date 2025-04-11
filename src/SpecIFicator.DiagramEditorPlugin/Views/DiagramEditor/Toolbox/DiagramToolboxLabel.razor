@@ -1,0 +1,12 @@
+﻿@using SpecIFicator.Plugins.BlazorComponents
+<div draggable="true"
+     @ondragstart="OnDragStart"
+     class="toolboxLabel">
+    @if (!string.IsNullOrEmpty(DataContext.Icon))
+    {
+        <ResourceIcon Icon="@DataContext.Icon" />
+
+        <span>&nbsp;</span>
+    }
+    @DataContext.Title
+</div>

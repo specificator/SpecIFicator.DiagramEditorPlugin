@@ -1,7 +1,19 @@
-﻿namespace SpecIFicator.DiagramEditorPlugin.ViewModels.ShapeEditor
+﻿using MDD4All.SpecIF.DataModels.DiagramMetadata;
+
+namespace SpecIFicator.DiagramEditorPlugin.ViewModels.ShapeEditor
 {
-    public class CircleViewModel : GraphicalObjectViewModel
+    public class CircleViewModel : GraphicalShapeObjectViewModel
     {
+
+        public CircleViewModel() : base(new CircleShapePrimitive())
+        {
+            Style = "stroke:black;fill:white;";
+        }
+
+        public CircleViewModel(CircleShapePrimitive shape) : base(shape)
+        {
+        }
+
 
         public override double Width
         {
@@ -26,7 +38,5 @@
 
 
 
-    } // Ende der Klasse -> CircleViewModel
-
-
-} // Ende Namespace
+    }
+}

@@ -6,7 +6,13 @@ namespace SpecIFicator.DiagramEditorPlugin.Views.ShapeEditor
     public partial class EditorToolbar
     {
         [Parameter]
-        public DiagramViewModel DataContext { get; set; }
+        public ShapeDiagramViewModel DataContext { get; set; }
+
+        [Parameter]
+        public bool ShowCloseButton { get; set; }
+
+        [Parameter]
+        public EventCallback CloseCallback { get; set; }
 
         public void BringTofront()
         {
@@ -26,6 +32,11 @@ namespace SpecIFicator.DiagramEditorPlugin.Views.ShapeEditor
             DataContext.DeleteCommand.Execute(null);
 
         } // Ende DeleteSelected
+
+        private void OnCloseButtonClicked()
+        {
+            CloseCallback.InvokeAsync(null);
+        }
 
 
 

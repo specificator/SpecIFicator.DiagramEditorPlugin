@@ -1,21 +1,37 @@
-﻿<div class="btn-group">
+﻿<div class="btn-toolbar justify-content-between">
+    <div class="btn-group">
 
-    <button class="btn btn-outline-secondary" type="button"
-            @onclick="BringTofront">
-        <i class="bi bi-front"></i>
-    </button>
+        <button class="btn btn-outline-primary" type="button"
+        @onclick="() => DataContext.SaveDiagramCommand.Execute(null)">
+            <i class="bi bi-floppy"></i>
+        </button>
 
-    <button class="btn btn-outline-secondary" type="button"
-            @onclick=" SendBackward">
+        <button class="btn btn-outline-secondary" type="button"
+        @onclick="BringTofront">
+            <i class="bi bi-front"></i>
+        </button>
 
-        <i class="bi bi-back"></i>
-    </button>
+        <button class="btn btn-outline-secondary" type="button"
+        @onclick="SendBackward">
 
-    <button type="button" class="btn btn-outline-danger"
-            @onclick="DeleteSelected">
-        <i class="bi bi-trash"></i>
-    </button>
+            <i class="bi bi-back"></i>
+        </button>
+
+        <button type="button" class="btn btn-outline-danger"
+        @onclick="DeleteSelected">
+            <i class="bi bi-trash"></i>
+        </button>
 
 
+    </div>
+    @if(ShowCloseButton)
+    {
+        <div class="btn-group">
+            <button class="btn btn-dark" type="button"
+                    @onclick="OnCloseButtonClicked">
+
+                <i class="bi bi-x"></i>
+            </button>
+        </div>
+    }
 </div>
-

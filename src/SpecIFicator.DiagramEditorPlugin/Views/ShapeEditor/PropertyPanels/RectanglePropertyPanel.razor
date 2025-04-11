@@ -1,0 +1,14 @@
+﻿@using MDD4All.SpecIF.DataModels.DiagramMetadata
+@using MDD4All.UI.BlazorComponents.PropertyPanel
+<PropertyTable>
+
+    <PropertyRow TProperty="int"
+                 @bind-Value="@DataContext.VerticalRadius"
+                 Name="Vertical Radius" />
+
+    <PropertyRow TProperty="int"
+                 @bind-Value="@DataContext.HorizontalRadius"
+                 Name="Horizontal Radius" />
+
+    <BaseShapePropertyRows DataContext="DataContext" />
+</PropertyTable>

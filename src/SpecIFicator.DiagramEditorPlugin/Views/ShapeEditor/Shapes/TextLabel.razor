@@ -1,0 +1,20 @@
+﻿<text x="@DataContext.TextX"
+      y="@DataContext.TextY"
+      font-size="@DataContext.FontSize"
+      font-family="@DataContext.SvgFontFamily"
+      font-style="@DataContext.FontStyle.ToString().ToLower()"
+      font-weight="@DataContext.FontWeight.ToString().ToLower()"
+      dy="-10"
+      style="@(DataContext.Style) pointer-events: none; user-select:none;">@DataContext.Value</text>
+
+<rect x="@DataContext.X"
+      y="@DataContext.Y"
+      width="@DataContext.Width"
+      height="@DataContext.Height"
+      style="fill:transparent; stroke:darkgrey; stroke-dasharray: 10,5;"
+      @onmousedown="OnMouseDown" />
+
+@if (DataContext.IsSelected)
+{
+    <SelectionBox DataContext="DataContext" />
+}

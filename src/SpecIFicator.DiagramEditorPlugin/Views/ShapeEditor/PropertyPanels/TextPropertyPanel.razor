@@ -1,0 +1,39 @@
+﻿@using MDD4All.SpecIF.DataModels.DiagramMetadata
+@using MDD4All.UI.BlazorComponents.PropertyPanel
+@using MDD4All.Text.DataModels
+<PropertyTable>
+
+    <PropertyRow TProperty="string"
+                 @bind-Value="@DataContext.Value"
+                 Name="Text" />
+
+    <PropertyRow TProperty="FontFamily"
+                 @bind-Value="@DataContext.FontFamily"
+                 Name="Font Family" />
+
+    <PropertyRow TProperty="int"
+                 @bind-Value="@DataContext.FontSize"
+                 Name="Font Size" />
+
+    <PropertyRow TProperty="FontWeight"
+                 @bind-Value="@DataContext.FontWeight"
+                 Name="Font Weight" />
+
+    <PropertyRow TProperty="FontStyle"
+                 @bind-Value="@DataContext.FontStyle"
+                 Name="Font Style" />
+
+    <PropertyRow TProperty="string"
+                 @bind-Value="@DataContext.FontColor"
+                 Name="Font Color" />
+
+    <PropertyRow TProperty="HorizontalTextAlignment"
+                 @bind-Value="@DataContext.HorizontalAlignment"
+                 Name="Horizontal Align" />
+
+    <PropertyRow TProperty="VerticalTextAlignment"
+                 @bind-Value="@DataContext.VerticalAlignment"
+                 Name="Vertical Align" />
+
+    <BaseShapePropertyRows DataContext="DataContext" />
+</PropertyTable>

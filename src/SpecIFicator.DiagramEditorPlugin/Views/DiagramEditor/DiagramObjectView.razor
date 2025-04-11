@@ -1,0 +1,13 @@
+﻿@((MarkupString)DataContext.SVG)
+
+<rect x="@DataContext.X"
+      y="@DataContext.Y"
+      width="@DataContext.Width"
+      height="@DataContext.Height"
+      style="fill:transparent; stroke: transparent;"
+      @onmousedown="OnMouseDown" />
+
+@if(DataContext.IsSelected)
+{
+    <SelectionBox DataContext="DataContext" />
+}

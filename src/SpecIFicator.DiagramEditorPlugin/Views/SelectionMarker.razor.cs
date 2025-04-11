@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using SpecIFicator.DiagramEditorPlugin.ViewModels;
 using SpecIFicator.DiagramEditorPlugin.ViewModels.ShapeEditor;
 
 namespace SpecIFicator.DiagramEditorPlugin.Views

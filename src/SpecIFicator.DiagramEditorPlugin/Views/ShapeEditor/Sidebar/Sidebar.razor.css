@@ -1,0 +1,15 @@
+﻿.sidebarPanel {
+    background: lightgray;
+    height: 100%;
+    border-right: 1px solid darkgray;
+}
+
+.sidebarButton {
+    margin: 3px;
+}
+
+.bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}

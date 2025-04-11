@@ -1,0 +1,29 @@
+﻿@using MDD4All.UI.BlazorComponents.TabControl
+@using SpecIFicator.DiagramEditorPlugin.ViewModels.DiagramEditor
+@using SpecIFicator.DiagramEditorPlugin.Views.DiagramEditor.Toolbox
+@using SpecIFicator.Plugins.BlazorComponents.PropertyTable
+<div class="diagramEditor">
+
+    <div class="toolbox">
+        <DiagramToolbox />
+    </div>
+
+    @if(DataContext.ActiveDiagram != null && 
+        DataContext.ActiveDiagram.SelectedElement != null)
+    {
+        if(DataContext.ActiveDiagram.SelectedElement is DiagramObjectViewModel)
+        {
+            DiagramObjectViewModel diagramObjectViewModel = DataContext.ActiveDiagram.SelectedElement as DiagramObjectViewModel;
+            
+            <div class="propertyPanel">
+                <ResourcePropertyTable DataContext="diagramObjectViewModel.MainResource"/>
+            </div>
+        }
+    }
+    
+    <div class="diagram">
+        <DynamicTabControl DataContext="DataContext" />
+    </div>
+    
+</div>
+

@@ -1,0 +1,20 @@
+﻿@using SpecIFicator.DiagramEditorPlugin.ViewModels.DiagramEditor
+<div>
+    <svg height="750"
+         width="100%"
+         @onmousemove="OnMouseMove"
+         @onmouseup="OnMouseUp"
+         @onclick="OnMouseClick"
+         ondragover="event.preventDefault()"
+         @ondrop="OnDrop">
+     
+     
+     
+        @foreach(DiagramObjectViewModel diagramObject in DataContext.DiagramObjects)
+        {
+            <DiagramObjectView DataContext="diagramObject" />
+        }
+    </svg>
+</div>
+
+

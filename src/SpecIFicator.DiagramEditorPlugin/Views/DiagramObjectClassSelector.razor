@@ -1,0 +1,16 @@
+﻿@using MDD4All.SpecIF.DataModels
+@using MDD4All.SpecIF.DataModels.DiagramMetadata
+<select class="form-control" @onchange="@OnDiagramObjectClassSelectionChange">
+    @foreach (DiagramObjectClass diagramObjectClass in AvailableDiagramObjectClasses)
+    {
+        Key key = new Key(diagramObjectClass.ID, diagramObjectClass.Revision);
+        string diagramObjectClassRevision = diagramObjectClass.Revision;
+        if (diagramObjectClassRevision.Length > 10)
+        {
+            diagramObjectClassRevision = diagramObjectClassRevision.Substring(0, 9) + "…";
+        }
+        string displayedValue = diagramObjectClass.Title + " (" + diagramObjectClassRevision + ")";
+
+        <option value="@key.ToString()">@displayedValue</option>
+    }
+</select>
