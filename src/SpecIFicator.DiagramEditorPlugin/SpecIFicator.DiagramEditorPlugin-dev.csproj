@@ -31,7 +31,7 @@
       <ProjectReference Include="..\..\..\MDD4All.UI.BlazorComponents\src\MDD4All.UI.BlazorComponents\MDD4All.UI.BlazorComponents-dev.csproj" />
       <ProjectReference Include="..\..\..\MDD4All.Xml.DataAccess\src\MDD4All.Xml.DataAccess\MDD4All.Xml.DataAccess-dev.csproj" />
       <ProjectReference Include="..\..\..\SpecIFicator.Framework\src\SpecIFicator.Framework\SpecIFicator.Framework-dev.csproj" />
-      <ProjectReference Include="..\..\..\SpecIFicator.Plugins.BlazorComponents\SpecIFicator.Plugins.BlazorComponents-dev.csproj" />
+      <ProjectReference Include="..\..\..\SpecIFicator.Plugins.BlazorComponents\src\SpecIFicator.Plugins.BlazorComponents\SpecIFicator.Plugins.BlazorComponents-dev.csproj" />
     </ItemGroup>
 
     <ItemGroup>
