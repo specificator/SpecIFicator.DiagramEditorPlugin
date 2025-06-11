@@ -1,29 +1,53 @@
 ﻿@using MDD4All.UI.BlazorComponents.TabControl
 @using SpecIFicator.DiagramEditorPlugin.ViewModels.DiagramEditor
 @using SpecIFicator.DiagramEditorPlugin.Views.DiagramEditor.Toolbox
+@using SpecIFicator.Plugins.BlazorComponents
 @using SpecIFicator.Plugins.BlazorComponents.PropertyTable
+@using SplitJs.Blazor.Components
 <div class="diagramEditor">
 
-    <div class="toolbox">
-        <DiagramToolbox />
+    <div class="mainPanel">
+        <SplitZone Style="height:100%;">
+            <Horizontal>
+                <Split MinSizePx="100" Size="20">
+                    <div class="tree">
+                        <CascadingValue Value="DataContext.HierarchyViewModel">
+                            <DragDropHierarchyTree />
+                        </CascadingValue>
+                    </div>
+                </Split>
+
+                <Split Size="60">
+                    <div class="diagram">
+                        <DynamicTabControl DataContext="DataContext" />
+                    </div>
+                </Split>
+
+                <Split MinSizePx="100" Size="20">
+                    <div class="toolbox">
+                        <DiagramToolbox />
+                    </div>
+                    @if (DataContext.ActiveDiagram != null &&
+                    DataContext.ActiveDiagram.SelectedElement != null)
+                    {
+                        if (DataContext.ActiveDiagram.SelectedElement is DiagramObjectViewModel)
+                        {
+                            DiagramObjectViewModel diagramObjectViewModel = DataContext.ActiveDiagram.SelectedElement as DiagramObjectViewModel;
+
+                            <div class="propertyPanel">
+                                <ResourcePropertyTable DataContext="diagramObjectViewModel.MainResource" />
+                            </div>
+                        }
+                    }
+                </Split>
+            </Horizontal>
+        </SplitZone>
     </div>
 
-    @if(DataContext.ActiveDiagram != null && 
-        DataContext.ActiveDiagram.SelectedElement != null)
-    {
-        if(DataContext.ActiveDiagram.SelectedElement is DiagramObjectViewModel)
-        {
-            DiagramObjectViewModel diagramObjectViewModel = DataContext.ActiveDiagram.SelectedElement as DiagramObjectViewModel;
-            
-            <div class="propertyPanel">
-                <ResourcePropertyTable DataContext="diagramObjectViewModel.MainResource"/>
-            </div>
-        }
-    }
-    
-    <div class="diagram">
-        <DynamicTabControl DataContext="DataContext" />
-    </div>
-    
+
+
+
+
+
 </div>
 

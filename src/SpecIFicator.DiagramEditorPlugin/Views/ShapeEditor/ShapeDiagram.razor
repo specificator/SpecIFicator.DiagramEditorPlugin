@@ -1,43 +1,48 @@
 ﻿@using SpecIFicator.DiagramEditorPlugin.ViewModels.ShapeEditor
 @using SpecIFicator.DiagramEditorPlugin.Views.ShapeEditor.Shapes
-@if(DataContext != null)
+@if (DataContext != null)
 {
-<div class="diagram">
-    <svg height="750"
-         width="100%"
-         @ondrop="OnDrop"
-         ondragover="event.preventDefault()"
-         @onmousemove="OnMouseMove"
-         @onmouseup="OnMouseUp"
-         @onclick="OnMouseClick">
+    <div class="diagram">
+        <svg height="750"
+             width="100%"
+             @ondrop="OnDrop"
+             ondragover="event.preventDefault()"
+             @onmousemove="OnMouseMove"
+             @onmouseup="OnMouseUp"
+             @onclick="OnMouseClick">
 
 
-        @foreach (GraphicalShapeObjectViewModel graphicalObjectViewModel in DataContext.DiagramObjects)
-        {
-            if (graphicalObjectViewModel is RectangleViewModel)
+            @foreach (GraphicalShapeObjectViewModel graphicalObjectViewModel in DataContext.DiagramObjects)
             {
-                <Rectangle DataContext="graphicalObjectViewModel as RectangleViewModel" />
-            }
-            else if (graphicalObjectViewModel is CircleViewModel)
-            {
-                <Circle DataContext="graphicalObjectViewModel as CircleViewModel" />
-            }
-            else if (graphicalObjectViewModel is EllipseViewModel)
-            {
-                <Ellipse DataContext="graphicalObjectViewModel as EllipseViewModel" />
-            }
-            else if (graphicalObjectViewModel is TextViewModel)
-            {
-                <TextLabel DataContext="graphicalObjectViewModel as TextViewModel" />
+                if (graphicalObjectViewModel is RectangleViewModel)
+                {
+                    <Rectangle DataContext="graphicalObjectViewModel as RectangleViewModel" />
+                }
+                else if (graphicalObjectViewModel is CircleViewModel)
+                {
+                    <Circle DataContext="graphicalObjectViewModel as CircleViewModel" />
+                }
+                else if (graphicalObjectViewModel is EllipseViewModel)
+                {
+                    <Ellipse DataContext="graphicalObjectViewModel as EllipseViewModel" />
+                }
+                else if (graphicalObjectViewModel is TextViewModel)
+                {
+                    <TextLabel DataContext="graphicalObjectViewModel as TextViewModel" />
+
+                }
+                else if (graphicalObjectViewModel is TableViewModel)
+                {
+                    <Table DataContext="graphicalObjectViewModel as TableViewModel" />
+
+                }
+
 
             }
 
 
-        }
 
-
-
-    </svg>
+        </svg>
     </div>
 }
 else

@@ -1,5 +1,7 @@
 using MDD4All.SpecIF.DataModels;
+using MDD4All.SpecIF.ViewModels;
 using MDD4All.UI.BlazorComponents.Services;
+using MDD4All.UI.DataModels.DragDrop;
 using MDD4All.UI.DataModels.TabControl;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
@@ -7,6 +9,7 @@ using SpecIFicator.DiagramEditorPlugin.CommandParamaters;
 using SpecIFicator.DiagramEditorPlugin.ViewModels;
 using SpecIFicator.DiagramEditorPlugin.ViewModels.DiagramEditor;
 using SpecIFicator.DiagramEditorPlugin.ViewModels.ShapeEditor;
+
 
 namespace SpecIFicator.DiagramEditorPlugin.Views.DiagramEditor
 {
@@ -448,14 +451,14 @@ namespace SpecIFicator.DiagramEditorPlugin.Views.DiagramEditor
     
         private void OnDrop(DragEventArgs dragEventArguments)
         {
-            object data = DragDropDataProvider.GetData();
+            DragDropInformation data = DragDropDataProvider.GetData();
             if (data != null)
             {
-                if(data is Key)
+                if(data.Data is Key && data.OperationInformation == DragDropInformationValues.CREATE_DIAGRAM_OBJECT)
                 {
                     DiagramObjectCreationParamater paramater = new DiagramObjectCreationParamater
                     {
-                        DiagramObjectClassKey = (Key)data,
+                        DiagramObjectClassKey = (Key)data.Data,
                         X = dragEventArguments.OffsetX,
                         Y = dragEventArguments.OffsetY,
                     };

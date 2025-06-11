@@ -1,8 +1,7 @@
 ﻿using GalaSoft.MvvmLight;
 using MDD4All.SpecIF.DataModels;
-using MDD4All.SpecIF.DataModels.DiagramInterchange;
-using MDD4All.SpecIF.DataModels.DiagramInterchange.DiagramDefinition;
 using MDD4All.SpecIF.DataProvider.Contracts;
+using MDD4All.SpecIF.ViewModels;
 using MDD4All.UI.DataModels.TabControl;
 using System.Collections.ObjectModel;
 
@@ -12,18 +11,25 @@ namespace SpecIFicator.DiagramEditorPlugin.ViewModels.DiagramEditor
     {
         private ISpecIfDataProviderFactory _dataProviderFactory;
 
-        public DiagramEditorViewModel(ISpecIfDataProviderFactory specIfDataProviderFactory)
+        public DiagramEditorViewModel(ISpecIfDataProviderFactory specIfDataProviderFactory,
+                                      HierarchyViewModel hierarchyViewModel)
         {
             _dataProviderFactory = specIfDataProviderFactory;
+            HierarchyViewModel = new HierarchyViewModel(_dataProviderFactory, hierarchyViewModel.RootNode.HierarchyKey);
+
+            Resource diagramResource = ((NodeViewModel)hierarchyViewModel.SelectedNode).ReferencedResource.Resource;
+
+            DiagramNodeViewModel = hierarchyViewModel.SelectedNode as NodeViewModel;
+
 
             // just for testing
-            DiagramViewModel diagramViewModel = new DiagramViewModel(specIfDataProviderFactory);
+            DiagramViewModel diagramViewModel = new DiagramViewModel(specIfDataProviderFactory, diagramResource);
 
             diagramViewModel.PropertyChanged += OnDiagramViewModelPropertyChanged;
 
 
 
-            diagramViewModel.DiagramObjects = new List<GraphicalObjectViewModel>();
+            //diagramViewModel.DiagramObjects = new List<GraphicalObjectViewModel>();
 
             //{
             //    new DiagramObjectViewModel()
@@ -114,5 +120,9 @@ namespace SpecIFicator.DiagramEditorPlugin.ViewModels.DiagramEditor
             
             set => throw new NotImplementedException(); 
         }
+
+        public HierarchyViewModel HierarchyViewModel { get; set; }
+
+        public NodeViewModel DiagramNodeViewModel { get; set; }
     }
 }

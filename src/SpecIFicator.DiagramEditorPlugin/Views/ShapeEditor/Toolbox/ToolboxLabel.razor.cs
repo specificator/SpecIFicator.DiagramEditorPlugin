@@ -13,6 +13,9 @@ namespace SpecIFicator.DiagramEditorPlugin.Views.ShapeEditor.Toolbox
         public string IconClass { get; set; }
 
         [Parameter]
+        public string UnicodeIcon {  get; set; }
+
+        [Parameter]
         public ShapeDiagramViewModel DataContext { get; set; }
 
         private void OnDragStart(DragEventArgs dragEventArgs)

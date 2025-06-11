@@ -1,0 +1,39 @@
+﻿<foreignObject x="@DataContext.X"
+      y="@DataContext.Y"
+      width="@DataContext.Width"
+      height="@DataContext.Height"
+      @onmousedown="OnMouseDown" >
+
+      <body xmlns="http://www.w3.org/1999/xhtml">
+      
+          <table border="1" width="100%">
+              
+                  <tr>
+                    <th>Hallo</th>
+                    <th>Tabelle</th>
+                  </tr>
+                  
+                  <tr>
+                      <td>
+                          dghndghn
+                      </td>
+                      <td>
+                          dghndghn
+                      </td>
+                  </tr>
+              
+          </table>
+      
+      </body>
+
+      </foreignObject>
+
+
+@if (DataContext.IsSelected)
+{
+    <SelectionBox DataContext="DataContext" />
+
+
+
+}
+

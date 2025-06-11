@@ -1,14 +1,25 @@
 ﻿@using SpecIFicator.DiagramEditorPlugin.ViewModels.DiagramEditor
 @using MDD4All.SpecIF.DataModels.Manipulation;
 @using SpecIFicator.DiagramEditorPlugin.Views.ShapeEditor
+@using SpecIFicator.DiagramEditorPlugin.Views.ShapeEditor.Panels
 @using SpecIFicator.Plugins.BlazorComponents;
 
-@if(!DataContext.ShowShapeEditor)
+@if(DataContext.ShowShapeEditor)
+{
+    <ShapeEditor DataContext="DataContext.EditorViewModel.ShapeUnderEdit" CloseEditorCallback="OnCloseEditor" />
+}
+else if(DataContext.ShowDiagramObjectClassCreationUserInterface)
+{
+    <DiagramObjectClassPanel DataContext="DataContext.EditorViewModel" 
+                             ClosedOkCallback="() => DataContext.ConfirmNewEditorCommand.Execute(null)"/>
+}
+else
 {
     <h3><span class="bi bi-images" aria-hidden="true"></span>&nbsp;@L["Title.DiagramObjectClassesBrowser"]</h3>
     <div>
-        <button type="button" class="btn btn-success"
-        @onclick="() => DataContext.AddDiagramObjectClassCommand.Execute(null)">
+        <button type="button" 
+                class="btn btn-success"
+                @onclick="() => DataContext.AddDiagramObjectClassCommand.Execute(null)">
             @L["Button.NewDiagramObjectClass"]
         </button>
     </div>
@@ -49,10 +60,7 @@
         </tbody>
     </table>
 }
-else
-{
-    <ShapeEditor DataContext="DataContext.ShapeUnderEdit" CloseEditorCallback="OnCloseEditor" />
-}
+
 
 
 

@@ -32,6 +32,7 @@
       <ProjectReference Include="..\..\..\MDD4All.Xml.DataAccess\src\MDD4All.Xml.DataAccess\MDD4All.Xml.DataAccess-dev.csproj" />
       <ProjectReference Include="..\..\..\SpecIFicator.Framework\src\SpecIFicator.Framework\SpecIFicator.Framework-dev.csproj" />
       <ProjectReference Include="..\..\..\SpecIFicator.Plugins.BlazorComponents\src\SpecIFicator.Plugins.BlazorComponents\SpecIFicator.Plugins.BlazorComponents-dev.csproj" />
+      <ProjectReference Include="..\..\..\SplitJs.Blazor\src\SplitJs.Blazor\SplitJs.Blazor-dev.csproj" />
     </ItemGroup>
 
     <ItemGroup>

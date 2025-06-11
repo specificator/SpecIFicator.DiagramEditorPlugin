@@ -116,7 +116,19 @@ namespace SpecIFicator.DiagramEditorPlugin.Views.ShapeEditor
 
                     DataContext.DiagramObjects.Add(textViewModel);
                 }
+                else if (type == "Table")
+                {
+                    TableViewModel tableViewModel = new TableViewModel
+                    {
+                        X = dragEventArgs.OffsetX,
+                        Y = dragEventArgs.OffsetY,
+                        Height = 200,
+                        Width = 400,
+                        Parent = DataContext
+                    };
 
+                    DataContext.DiagramObjects.Add(tableViewModel);
+                }
 
                 type = null;
 

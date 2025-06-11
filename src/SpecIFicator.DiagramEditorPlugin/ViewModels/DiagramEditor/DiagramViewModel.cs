@@ -24,6 +24,16 @@ namespace SpecIFicator.DiagramEditorPlugin.ViewModels.DiagramEditor
             InitializeCommands();
         }
 
+        public DiagramViewModel(ISpecIfDataProviderFactory specIfDataProviderFactory,
+                                Resource diagramResource) :
+                            base(specIfDataProviderFactory.MetadataReader,
+                                 specIfDataProviderFactory.DataReader,
+                                 specIfDataProviderFactory.DataWriter,
+                                 diagramResource)
+        {
+            _specIfDataProviderFactory = specIfDataProviderFactory;
+            InitializeCommands();
+        }
         public DiagramViewModel(ISpecIfMetadataReader metadataReader,
                                 ISpecIfDataReader dataReader,
                                 ISpecIfDataWriter dataWriter,
@@ -117,6 +127,7 @@ namespace SpecIFicator.DiagramEditorPlugin.ViewModels.DiagramEditor
                 return _selectedElement;
             }
         }
+
 
         public ICommand CreateDiagramObjectCommand { get; private set; }
 

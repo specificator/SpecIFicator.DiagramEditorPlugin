@@ -45,12 +45,16 @@ namespace SpecIFicator.DiagramEditorPlugin.Converters
 
                 if (shapePrimitive is RectangleShapePrimitive)
                 {
+                    RectangleShapePrimitive rectangleShapePrimitive = (RectangleShapePrimitive)shapePrimitive;
+
                     Rectangle svgRectangle = new Rectangle
                     {
                         X = x.ToString(CultureInfo.InvariantCulture),
                         Y = y.ToString(CultureInfo.InvariantCulture),
                         Width = width.ToString(CultureInfo.InvariantCulture),
                         Height = height.ToString(CultureInfo.InvariantCulture),
+                        VerticalCornerRadius = rectangleShapePrimitive.VerticalRadius.ToString(CultureInfo.InvariantCulture),
+                        HorizontalCornerRadius = rectangleShapePrimitive.HorizontalRadius.ToString(CultureInfo.InvariantCulture),
                         CssStyle = shapePrimitive.Style
                     };
                     group.Elements.Add(svgRectangle);

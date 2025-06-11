@@ -27,7 +27,6 @@ namespace SpecIFicator.DiagramEditorPlugin.ViewModels.ShapeEditor
         private void InitializeCommands()
         {
             NewEditorCommand = new RelayCommand(ExecuteNewEditorCommand);
-            ConfirmNewEditorCommand = new RelayCommand(ExecuteConfirmNewEditorCommand);
             OpenShapeCommand = new RelayCommand(ExecuteOpenShapeCommand);
             ConfirmOpenShapeCommand = new RelayCommand(ExecuteConfirmOpenShapeCommand);
             CloseDiagramCommand = new RelayCommand<ShapeDiagramViewModel>(ExecuteCloseDiagramCommand);
@@ -44,8 +43,6 @@ namespace SpecIFicator.DiagramEditorPlugin.ViewModels.ShapeEditor
 
         #region COMMAND_DEFINITIONS
         public ICommand NewEditorCommand { get; private set; }
-
-        public ICommand ConfirmNewEditorCommand { get; private set; }
 
         public ICommand OpenShapeCommand { get; private set; }
 
@@ -75,27 +72,7 @@ namespace SpecIFicator.DiagramEditorPlugin.ViewModels.ShapeEditor
             RaisePropertyChanged();
         }
 
-        private void ExecuteConfirmNewEditorCommand()
-        {
-            if (ShapeUnderEdit != null)
-            {
-                // add templates
-                if (ShapeUnderEdit.MainResourceClassKey != null)
-                {
-                    Resource templateResource = SpecIfDataFactory.CreateResource(ShapeUnderEdit.MainResourceClassKey);
-
-                    ShapeUnderEdit.DiagramObjectClass.DataTemplate.Resources.Add(templateResource);
-                }
-
-                // save data and refresh the view
-                _specIfMetadataWriter.AddDiagramObjectClass(ShapeUnderEdit.DiagramObjectClass);
-                Pages.Add(ShapeUnderEdit);
-                ShapeUnderEdit = null;
-
-                EditDiagramObjectClassProperties = false;
-                RaisePropertyChanged();
-            }
-        }
+        
 
         private void ExecuteOpenShapeCommand()
         {

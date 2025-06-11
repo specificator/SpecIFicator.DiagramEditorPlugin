@@ -1,9 +1,13 @@
 ﻿<div draggable="true"
-     @ondragstart="OnDragStart"
-     class="toolboxLabel">
+@ondragstart="OnDragStart"
+class="toolboxLabel">
     @if (!string.IsNullOrEmpty(IconClass))
     {
         <i class="@IconClass"></i><span>&nbsp;</span>
+    }
+    else if(!string.IsNullOrEmpty(UnicodeIcon))
+    {
+        <span>@UnicodeIcon&nbsp;</span>
     }
     @Title
 </div>

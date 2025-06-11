@@ -7,5 +7,8 @@ namespace SpecIFicator.DiagramEditorPlugin.Views.ShapeEditor.Panels
     {
         [Parameter]
         public EditorViewModel DataContext { get; set; }
+
+        [Parameter]
+        public EventCallback ClosedOkCallback { get; set; }
     }
 }
