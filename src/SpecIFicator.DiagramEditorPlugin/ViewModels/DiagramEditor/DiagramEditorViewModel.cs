@@ -19,15 +19,14 @@ namespace SpecIFicator.DiagramEditorPlugin.ViewModels.DiagramEditor
 
             Resource diagramResource = ((NodeViewModel)hierarchyViewModel.SelectedNode).ReferencedResource.Resource;
 
-            DiagramNodeViewModel = hierarchyViewModel.SelectedNode as NodeViewModel;
+            NodeViewModel diagramNodeViewModel = hierarchyViewModel.SelectedNode as NodeViewModel;
 
+            
 
             // just for testing
-            DiagramViewModel diagramViewModel = new DiagramViewModel(specIfDataProviderFactory, diagramResource);
+            DiagramViewModel diagramViewModel = new DiagramViewModel(specIfDataProviderFactory, diagramNodeViewModel, HierarchyViewModel);
 
             diagramViewModel.PropertyChanged += OnDiagramViewModelPropertyChanged;
-
-
 
             //diagramViewModel.DiagramObjects = new List<GraphicalObjectViewModel>();
 
@@ -59,10 +58,10 @@ namespace SpecIFicator.DiagramEditorPlugin.ViewModels.DiagramEditor
             //diagramObjectViewModel.Parent = diagramViewModel;
 
             //diagramViewModel.DiagramObjects.Add(diagramObjectViewModel);
-                
-            
-            
-            
+
+
+
+
             Pages.Add(diagramViewModel);
 
         }
